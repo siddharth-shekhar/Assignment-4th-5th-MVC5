@@ -1,0 +1,34 @@
+﻿@model AssignmentTwo_ASP.NET_MVC.Models.Account
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div> 
+        <h2>Editing Details for Account number : @Model.AccountNumber</h2>
+        @{ 
+            using (Html.BeginForm("EditAccount" , "Home"))
+            {
+                @Html.HiddenFor(a=>a.AccountNumber)
+                <p>
+                    <b>Name : </b> @Html.TextBoxFor(a=>a.Name)
+                </p>
+                <p>
+                    <b>CurrentBalance : </b> @Html.TextBoxFor(a=>a.CurrentBalance)
+                </p>
+                <input type="submit"value="Save Modifications" />
+                <br />
+                <br />
+                @Html.ActionLink("Cancel Modifications", "CancelEdit")
+            }
+        }
+    </div>
+</body>
+</html>

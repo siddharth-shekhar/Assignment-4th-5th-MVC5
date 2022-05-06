@@ -1,0 +1,39 @@
+﻿@model AssignmentTwo_ASP.NET_MVC.Models.Account
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+        <h2>Wecome to "HDFC Easy Go" Here Create Your Account!</h2>
+        @using (Html.BeginForm("CreateAccount", "Home"))
+        {
+            @Html.ValidationSummary("Errors in account creation")
+            <p>
+                @Html.ValidationMessageFor(a=>a.AccountNumber)
+                <b>Account Number:</b> @Html.TextBoxFor(a => a.AccountNumber)
+            </p>
+
+            <p>
+                @Html.ValidationMessageFor(a=>a.Name)
+                <b>Name:</b> @Html.TextBoxFor(a => a.Name)
+            </p>
+
+            <p>
+                @Html.ValidationMessageFor(a=>a.CurrentBalance)
+                <b>Current Balance:</b> @Html.TextBoxFor(a => a.CurrentBalance)
+            </p>
+
+            <input type="submit" value="Create Account" />
+        }
+
+    </div>
+</body>
+</html>

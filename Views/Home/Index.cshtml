@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AssignmentTwo_ASP.NET_MVC.Models.Account>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>
+            Viewing all accounts...
+        </h2>
+        @Html.ActionLink("Create new account", "Create")
+        @foreach (var a in Model)
+        {
+            <p>
+                <b>Account Number:</b> @a.AccountNumber
+            </p>
+            <p>
+                <b>Account Holder's Name:</b> @a.Name
+            </p>
+
+            <p>
+                <b>Current Balance:</b> @a.CurrentBalance.ToString("C")
+            </p>
+            @Html.ActionLink("Edit", "Edit", new { accno = @a.AccountNumber }) 
+            <span>&nbsp;</span>
+            @Html.ActionLink("Delete","Delete",new {accno = @a.AccountNumber})
+            <hr />
+        }
+
+    </div>
+    <div>
+        @Html.Action("GetNews", new { category = "Sports" })
+        @Html.Action("GetNews", new { category = "Weather" })
+        @Html.Action("GetNews", new { category = "Stock" })
+    </div>
+</body>
+</html>
